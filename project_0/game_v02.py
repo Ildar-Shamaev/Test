@@ -12,22 +12,19 @@ def random_predict(number: int = 1) -> int:
     Returns:
         int: Число попыток
     """
-    def multiplicity(num):
-        if num % 2 !=0:
-            num+=1
-        
-        return num/2
     
     count = 0
+    tmp=[1, 100]
     predict_number = 50
     while True:
         count+=1
         if number < predict_number:
-            predict_number=multiplicity(predict_number)
+            tmp[1]=predict_number
+            predict_number=(tmp[0]+tmp[1])//2
             
         elif number > predict_number:
-            temp=multiplicity(predict_number)
-            predict_number+=temp
+            tmp[0]=predict_number
+            predict_number=(tmp[0]+tmp[1])//2
             
         else:
             break
@@ -51,9 +48,8 @@ def score_game(random_predict) -> int:
         count_ls.append(random_predict(number))
 
     score = int(np.mean(count_ls))
-    print(f"Ваш алгоритм угадывает числоо в среднем за:{score} попыток")
+    print(f"Ваш алгоритм угадывает число в среднем за:{score} попыток")
     return score
-
 
 if __name__ == "__main__":
     # RUN
