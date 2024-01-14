@@ -14,8 +14,9 @@ def random_predict(number: int = 1) -> int:
     """
     
     count = 0
-    tmp=[1, 100]
     predict_number = 50
+    tmp=[1, 100]
+    
     while True:
         count+=1
         if number < predict_number:
@@ -51,6 +52,9 @@ def score_game(random_predict) -> int:
     print(f"Ваш алгоритм угадывает число в среднем за:{score} попыток")
     return score
 
+
 if __name__ == "__main__":
-    # RUN
+   # RUN
     score_game(random_predict)
+
+#score_game(random_predict)
